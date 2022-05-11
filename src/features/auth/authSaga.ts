@@ -1,6 +1,9 @@
 import { PayloadAction } from '@reduxjs/toolkit';
+import { history } from 'index';
 import { call, delay, fork, put, take } from 'redux-saga/effects';
 import { authActions, LoginPayload } from './authSlice';
+
+// const navigation = useNavigate();
 
 function* handleLogin(payload: LoginPayload) {
   try {
@@ -14,6 +17,7 @@ function* handleLogin(payload: LoginPayload) {
         name: 'Khanh Thy',
       })
     );
+    history.push('/admin');
   } catch (error: any) {
     yield put(authActions.loginFailed(error.message()));
   }

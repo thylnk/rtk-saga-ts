@@ -56,3 +56,14 @@ react-router-dom
 /admin/\*
 /admin/dashboard
 /admin/students
+
+## PrivateRoute / ProtectedRoute
+
+1. https://reactrouter.com/docs/en/v6/examples/auth
+2. https://stackoverflow.com/questions/47747754/how-to-rewrite-the-protected-private-route-using-typescript-and-react-router-4
+
+## How to navigate outside of react component using react router v6
+
+1. https://stackoverflow.com/questions/68399876/how-to-navigate-outside-of-react-component-using-react-router-6/70002872#70002872
+2. https://stackoverflow.com/questions/49199329/how-to-push-route-in-history-using-redux-saga
+3. https://stackoverflow.com/questions/70881320/redirect-to-route-from-saga-using-react-router-v6

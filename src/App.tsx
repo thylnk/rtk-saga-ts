@@ -26,9 +26,10 @@ function App() {
         <Route
           path="/admin"
           element={
-            <PrivateRoute>
-              <AdminLayout />
-            </PrivateRoute>
+            <PrivateRoute
+              authenticationPath="/admin"
+              outlet={<AdminLayout />}
+            />
           }
         />
         <Route path="*" element={<NotFound />} />

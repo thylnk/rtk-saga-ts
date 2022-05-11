@@ -5,8 +5,14 @@ import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-import { BrowserRouter } from 'react-router-dom';
+import {
+  BrowserRouter,
+  unstable_HistoryRouter as HistoryRouter,
+} from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import { CssBaseline } from '@mui/material';
+
+export const history = createBrowserHistory({ window });
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -14,10 +20,12 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <HistoryRouter history={history}>
+        {/* <BrowserRouter> */}
         <CssBaseline />
         <App />
-      </BrowserRouter>
+        {/* </BrowserRouter> */}
+      </HistoryRouter>
     </Provider>
   </React.StrictMode>
 );
