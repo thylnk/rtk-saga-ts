@@ -6,7 +6,6 @@ export interface LoginPayload {
   username: string;
   password: string;
 }
-
 export interface AuthState {
   isLoggedIn: boolean;
   logging?: boolean;
@@ -26,10 +25,10 @@ const authSlice = createSlice({
     login(state: AuthState, action: PayloadAction<LoginPayload>) {
       state.logging = true;
     },
-    loginSuccess(state: AuthState, action: PayloadAction<LoginPayload>) {
+    loginSuccess(state: AuthState, action: PayloadAction<User>) {
       state.logging = false;
       state.isLoggedIn = true;
-      state.currentUser = null;
+      state.currentUser = action.payload;
     },
     loginFailed(state: AuthState, action: PayloadAction<string>) {
       state.logging = false;
