@@ -1,10 +1,8 @@
-import { Box, Button, Paper, ThemeProvider, Typography } from '@mui/material';
+import { Box, Button, Paper, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import React, { Component } from 'react';
-
-type Props = {};
-
-type State = {};
+import { useAppDispatch } from 'app/hooks';
+import React from 'react';
+import { authActions } from '../authSlice';
 
 const useStyles = makeStyles({
   root: {
@@ -23,6 +21,17 @@ const useStyles = makeStyles({
 export default function LoginPage() {
   const classes = useStyles();
 
+  const dispatch = useAppDispatch();
+
+  const handleLogin = () => {
+    dispatch(
+      authActions.login({
+        username: '',
+        password: '',
+      })
+    );
+  };
+
   return (
     <div className={classes.root}>
       <Paper elevation={1} className={classes.box}>
@@ -30,7 +39,12 @@ export default function LoginPage() {
           Student Management
         </Typography>
         <Box mt={4}>
-          <Button fullWidth variant="contained" color="primary">
+          <Button
+            fullWidth
+            variant="contained"
+            color="primary"
+            onClick={handleLogin}
+          >
             Fake login
           </Button>
         </Box>

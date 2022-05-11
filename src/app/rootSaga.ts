@@ -1,16 +1,7 @@
-import { PayloadAction } from '@reduxjs/toolkit';
-import { all, takeEvery } from 'redux-saga/effects';
-
-export function* log(action: PayloadAction) {
-  console.log(action);
-}
-
-function* helloSaga() {
-  console.log('Hello Saga');
-  yield takeEvery('*', log);
-}
+import authSaga from 'features/auth/authSaga';
+import { all } from 'redux-saga/effects';
 
 export default function* rootSaga() {
   console.log('Root Saga');
-  yield all([helloSaga()]);
+  yield all([authSaga()]);
 }
