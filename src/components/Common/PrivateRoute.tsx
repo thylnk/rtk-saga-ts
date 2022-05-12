@@ -1,6 +1,6 @@
+import { useAppSelector } from 'app/hooks';
 import { selectIsLoggedIn } from 'features/auth/authSlice';
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 export type PrivateRouteProps = {
@@ -16,11 +16,7 @@ export default function PrivateRoute({
   // if yes, show route
   // else redirect to login page
 
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-
-  // console.log(typeof isLoggedIn);
-
-  // const isLoggedIn = Boolean(localStorage.getItem('access_token'));
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
   useEffect(() => {}, [isLoggedIn]);
 

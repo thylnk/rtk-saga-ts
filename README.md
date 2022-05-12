@@ -45,6 +45,8 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
+# MY NOTE HERE
+
 ## Mini Project - Student Management
 
 react-router-dom
@@ -64,6 +66,7 @@ react-router-dom
 
 ## How to navigate outside of react component using react router v6
 
-1. https://stackoverflow.com/questions/68399876/how-to-navigate-outside-of-react-component-using-react-router-6/70002872#70002872
-2. https://stackoverflow.com/questions/49199329/how-to-push-route-in-history-using-redux-saga
-3. https://stackoverflow.com/questions/70881320/redirect-to-route-from-saga-using-react-router-v6
+1. [How to navigate outside of react component using react- router-6](https://stackoverflow.com/questions/68399876/how-to-navigate-outside-of-react-component-using-react-router-6/70002872#70002872)
+2. [How to push route in history using redux-saga](https://stackoverflow.com/questions/49199329/how-to-push-route-in-history-using-redux-saga)
+3. [Redirect to Route from Saga using React Router v6](https://stackoverflow.com/questions/70881320/redirect-to-route-from-saga-using-react-router-v6)
+4. using connected-react-router [(recommened by react router dom )](https://v5.reactrouter.com/web/guides/deep-redux-integration) - [Watch here for installation (VN)](https://www.youtube.com/watch?v=jo-8-6TTECI&list=PLeS7aZkL6GOuyJkqg5mXvU2WoKCv6zDBL&index=20)

@@ -1,8 +1,15 @@
-import { Box, Button, Paper, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Paper,
+  Typography,
+} from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { useAppDispatch } from 'app/hooks';
+import { useAppDispatch, useAppSelector } from 'app/hooks';
 import React from 'react';
-import { authActions } from '../authSlice';
+import { Navigate } from 'react-router-dom';
+import { authActions, selectIsLoggedIn, selectIsLogging } from '../authSlice';
 
 const useStyles = makeStyles({
   root: {
@@ -20,8 +27,9 @@ const useStyles = makeStyles({
 
 export default function LoginPage() {
   const classes = useStyles();
-
   const dispatch = useAppDispatch();
+  const logging = useAppSelector(selectIsLogging);
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
   const handleLogin = () => {
     dispatch(
@@ -31,6 +39,10 @@ export default function LoginPage() {
       })
     );
   };
+
+  if (isLoggedIn) {
+    return <Navigate to={{ pathname: '/admin' }} />;
+  }
 
   return (
     <div className={classes.root}>
@@ -45,6 +57,13 @@ export default function LoginPage() {
             color="primary"
             onClick={handleLogin}
           >
+            {logging && (
+              <CircularProgress
+                size={20}
+                color="secondary"
+                style={{ marginRight: 10 }}
+              />
+            )}
             Fake login
           </Button>
         </Box>

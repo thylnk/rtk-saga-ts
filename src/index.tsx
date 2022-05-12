@@ -5,12 +5,13 @@ import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-import {
-  BrowserRouter,
-  unstable_HistoryRouter as HistoryRouter,
-} from 'react-router-dom';
+import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-import { CssBaseline } from '@mui/material';
+import {
+  CssBaseline,
+  ThemeProvider,
+  Experimental_CssVarsProvider as CssVarsProvider,
+} from '@mui/material';
 
 export const history = createBrowserHistory({ window });
 
@@ -21,10 +22,10 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <HistoryRouter history={history}>
-        {/* <BrowserRouter> */}
         <CssBaseline />
-        <App />
-        {/* </BrowserRouter> */}
+        <CssVarsProvider>
+          <App />
+        </CssVarsProvider>
       </HistoryRouter>
     </Provider>
   </React.StrictMode>

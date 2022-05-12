@@ -13,7 +13,7 @@ export interface AuthState {
 }
 
 const initialState: AuthState = {
-  isLoggedIn: false,
+  isLoggedIn: Boolean(localStorage.getItem('access_token')),
   logging: false,
   currentUser: null,
 };
@@ -46,9 +46,8 @@ const authSlice = createSlice({
 export const authActions = authSlice.actions;
 
 // selectors
-export const selectIsLoggedIn = (state: RootState) => {
-  return state.auth.isLoggedIn;
-};
+export const selectIsLoggedIn = (state: RootState) => state.auth.isLoggedIn;
+export const selectIsLogging = (state: RootState) => state.auth.logging;
 
 // reducer
 const authReducer = authSlice.reducer;
